@@ -132,6 +132,4 @@ function autoLoop() {
 }
 getActiveDot();
 functionalDots();
-autoLoop();
-
-console.log(window.innerWidth);
+// autoLoop();
