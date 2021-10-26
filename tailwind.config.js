@@ -42,8 +42,10 @@ module.exports = {
       },
       width: {
         treesSm: '30rem',
-        treesMd: '65rem',
-        treesLg: '85rem',
+        treesMd: '40rem',
+        treesLg: '60rem',
+        computerLg: '65rem',
+        treesXl: '85rem',
       },
       colors: {
         adirondackGreen: '#006F53',

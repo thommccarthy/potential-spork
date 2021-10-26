@@ -2,16 +2,21 @@
 const mobileButton = document.querySelector('button.mobile-menu-button');
 const menu = document.querySelector('.mobile-menu');
 
-mobileButton.addEventListener('click', () => {
+const toggleMenu = () => {
   menu.classList.toggle('hidden');
-});
+};
 
-//carousel stuff
+mobileButton.addEventListener('click', toggleMenu);
+
+/*CAROUSEL STUFF*/
 
 //grab every element with class slide and store into an array
 const slides = Array.from(document.querySelectorAll('.slide'));
+//get the slider
 const slider = document.querySelectorAll('.slider');
+//get the arrows
 const arrows = document.querySelectorAll('.arrow');
+// get the dots
 const dotsEl = document.querySelector('.dots');
 let timeoutId;
 
@@ -47,25 +52,27 @@ function getPosition() {
       slide.style.transform = 'translateX(100%)';
     }
     slide.addEventListener('transitionend', () => {
-      slide.classList.remove('top');
+      slide.classList.remove('topSlide');
     });
   });
 }
+
 arrows.forEach((button) => {
   button.addEventListener('click', () => {
     if (button.classList.contains('next')) getNextSlide();
     else if (button.classList.contains('prev')) getPrevSlide();
   });
 });
+
 function getNextSlide() {
   clearInterval(timeoutId);
   const current = document.querySelector('.slide.active');
   const [next, prev] = getNextPrev();
-  if (current.classList.contains('top')) {
+  if (current.classList.contains('topSlide')) {
     return;
   }
-  current.classList.add('top');
-  next.classList.add('top');
+  current.classList.add('topSlide');
+  next.classList.add('topSlide');
   current.style.transform = 'translate(-100%)';
   current.classList.remove('active');
   next.style.transform = 'translateX(0)';
@@ -78,8 +85,8 @@ function getPrevSlide() {
   clearInterval(timeoutId);
   const current = document.querySelector('.active');
   const [next, prev] = getNextPrev();
-  current.classList.add('top');
-  prev.classList.add('top');
+  current.classList.add('topSlide');
+  prev.classList.add('topSlide');
   current.style.transform = 'translate(100%)';
   current.classList.remove('active');
   prev.style.transform = 'translateX(0)';
@@ -90,12 +97,13 @@ function getPrevSlide() {
 }
 getPosition();
 
-// dots
+// dots will be generated for each slide
 slides.forEach((slide) => {
   const dot = document.createElement('div');
   dot.classList.add('dot');
   dotsEl.appendChild(dot);
 });
+
 function getActiveDot() {
   const allDots = document.querySelectorAll('.dots .dot');
   allDots.forEach((dot) => {
@@ -105,6 +113,7 @@ function getActiveDot() {
   const activeIndex = slides.indexOf(activeSlide);
   allDots[activeIndex].classList.add('active');
 }
+
 function functionalDots() {
   const allDots = document.querySelectorAll('.dots .dot');
   allDots.forEach((dot, index) => {
@@ -113,6 +122,7 @@ function functionalDots() {
     });
   });
 }
+
 function getDotSlide(index) {
   clearTimeout(timeoutId);
   slides.forEach((slide) => {
@@ -130,6 +140,43 @@ function autoLoop() {
     getNextSlide();
   }, 4000);
 }
+
 getActiveDot();
 functionalDots();
-// autoLoop();
+autoLoop();
+
+//added basic swiper controls
+//only on phone not mouse
+let touchstartX = 0;
+let touchendX = 0;
+
+slides.forEach((slide) => {
+  slide.addEventListener(
+    'touchstart',
+    function (event) {
+      touchstartX = event.changedTouches[0].screenX;
+      touchstartY = event.changedTouches[0].screenY;
+    },
+    false
+  );
+
+  slide.addEventListener(
+    'touchend',
+    function (event) {
+      touchendX = event.changedTouches[0].screenX;
+      touchendY = event.changedTouches[0].screenY;
+      handleGesture();
+    },
+    false
+  );
+
+  function handleGesture() {
+    if (touchendX <= touchstartX) {
+      getNextSlide();
+    }
+
+    if (touchendX >= touchstartX) {
+      getPrevSlide();
+    }
+  }
+});

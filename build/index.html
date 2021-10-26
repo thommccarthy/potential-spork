@@ -7,24 +7,18 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Adirondack Bank</title>
     <style>
-      .slider {
-        width: 100%;
-        height: 100%;
-        position: relative;
+      html {
+        scroll-behavior: smooth;
       }
+
       .slide {
         width: 100%;
         height: 100%;
-        /* display: flex;
-        align-items: center;
-        justify-content: center; */
         position: absolute;
         z-index: -1;
-        background-size: cover;
-        background-position: center;
       }
 
-      .top {
+      .topSlide {
         z-index: 3;
         transition: 0.5s ease transform;
       }
@@ -36,19 +30,12 @@
         transition: 0.5s ease transform;
       }
 
-      .dots {
-        z-index: 5;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
       .dots .dot {
         display: inline-block;
-        height: 10px;
-        width: 10px;
-        background-color: rgba(255, 255, 255, 0.185);
+        height: 14px;
+        width: 14px;
         border-radius: 10px;
+        border: solid white 2px;
         margin: 7px;
         transition: 0.3s ease width;
         cursor: pointer;
@@ -57,10 +44,17 @@
         background-color: white;
       }
 
-      .slide-1 {
-        flex-direction: column;
-        text-align: left;
-        align-items: flex-start;
+      @media screen and (min-width: 700px) {
+        .dots .dot {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      @media screen and (min-width: 1000px) {
+        .dots {
+          margin-bottom: 3em;
+        }
       }
     </style>
   </head>
@@ -70,51 +64,64 @@
       <!-- header grid -->
       <div
         class="
+          flex flex-wrap
+          md:grid
+          md:grid-cols-6
+          md:grid-rows-3
+          md:h-28
+          md:justify-between
+          md:mx-auto
           p-3
           w-full
-          md:mx-auto
-          flex
-          md:grid md:grid-cols-6 md:grid-rows-3 md:h-28
-          flex-wrap
-          md:justify-between
           xl:h-40
         "
       >
         <p
           class="
+            2xl:mr-48
             font-gothamBold
-            p-1
-            pl-3
-            pb-0
-            text-s
-            order-2
-            md:order-1
-            md:col-start-1
-            md:col-end-3
-            md:text-base
-            md:row-start-1
-            md:row-end-4
-            md:m-auto
             lg:text-lg
+            md:col-end-3
+            md:col-start-1
+            md:m-auto
+            md:order-1
+            md:row-end-4
+            md:row-start-1
+            md:text-base
+            order-2
+            p-1
+            pb-0
+            pl-3
+            text-s
             xl:text-xl
-            2xl:mr-64
           "
         >
-          Visit <a class="text-adirondackGreen">adirondackbank.com</a>
+          Visit
+          <a
+            href="https://www.adirondackbank.com/"
+            target="_blank"
+            class="
+              hover:bg-adirondackGold hover:bg-opacity-70
+              text-adirondackGreen
+            "
+            >adirondackbank.com</a
+          >
         </p>
         <!-- LOGO -->
         <div
           class="
-            order-1
-            md:order-2
-            md:col-start-3
+            md:block
+            md:w-max
+            md:mx-auto
             md:col-end-5
-            md:row-start-1
-            md:row-end-4
+            md:col-start-3
             md:m-auto
-            w-full
-            md:block md:w-max md:mx-auto
+            md:order-2
+            md:row-end-4
+            md:row-start-1
+            order-1
             pt-1
+            w-full
           "
         >
           <img
@@ -126,15 +133,15 @@
         <!-- MOBILE MENU BUTTON -->
         <div
           class="
-            z-50
-            md:hidden
+            absolute
+            bg-adirondackGreen
             flex
             items-center
-            absolute
+            md:hidden
             right-3
-            top-3
-            bg-adirondackGreen
             shadow-mobileMenu
+            top-3
+            z-50
           "
         >
           <button class="outline-none mobile-menu-button">
@@ -154,7 +161,9 @@
         </div>
 
         <!-- HIDDEN MOBILE LINKS -->
-        <div class="hidden relative mobile-menu transition-all w-full">
+        <div
+          class="hidden relative mobile-menu md:hidden transition-all w-full"
+        >
           <img
             class="z-0 w-36 absolute left-40 top-3"
             src="./assets/images/trees.png"
@@ -163,46 +172,46 @@
           <ul class="">
             <li class="">
               <a
-                href="#"
+                href="#promotions"
+                onclick="toggleMenu()"
                 class="
                   block
-                  text-sm
+                  font-gothamBold
                   px-2
                   py-4
-                  text-adirondackGreen
-                  font-gothamBold
+                  text-adirondackGreen text-sm
                 "
                 >Promotions & Offers</a
               >
             </li>
             <li>
               <a
-                href="#"
+                href="#top-news"
+                onclick="toggleMenu()"
                 class="
                   block
-                  text-sm
+                  duration-300
+                  font-gothamBold
                   px-2
                   py-4
-                  text-adirondackGreen
-                  font-gothamBold
+                  text-adirondackGreen text-sm
                   transition
-                  duration-300
                 "
                 >Latest News</a
               >
             </li>
             <li>
               <a
-                href="#"
+                href="#location"
+                onclick="toggleMenu()"
                 class="
                   block
-                  text-sm
+                  duration-300
+                  font-gothamBold
                   px-2
                   py-4
-                  text-adirondackGreen
-                  font-gothamBold
+                  text-adirondackGreen text-sm
                   transition
-                  duration-300
                 "
                 >Locations</a
               >
@@ -236,9 +245,36 @@
             xl:text-lg
           "
         >
-          <li class="xl:px-4 px-2 py-1">Promotions & Offers</li>
-          <li class="xl:px-4 px-2 py-1">Latest News</li>
-          <li class="xl:px-4 px-2 py-1">Locations</li>
+          <a
+            href="#promotions"
+            class="
+              hover:bg-adirondackGold hover:bg-opacity-70
+              px-2
+              py-1
+              xl:px-4
+            "
+            >Promotions & Offers</a
+          >
+          <a
+            href="#top-news"
+            class="
+              xl:px-4
+              px-2
+              py-1
+              hover:bg-adirondackGold hover:bg-opacity-70
+            "
+            >Latest News</a
+          >
+          <a
+            href="#location"
+            class="
+              xl:px-4
+              px-2
+              py-1
+              hover:bg-adirondackGold hover:bg-opacity-70
+            "
+            >Locations</a
+          >
         </ul>
       </div>
     </header>
@@ -258,7 +294,7 @@
         2xl:h-twoXlSlider
       "
     >
-      <div class="slider relative">
+      <div class="slider w-full h-full relative">
         <!-- CYBERSECURITY -->
         <div
           class="
@@ -295,7 +331,7 @@
               self-center
               w-64
               xl:w-treesSm
-              2xl:w-treesMd
+              2xl:w-computerLg
             "
             src="./assets/images/golden-shield.png"
             alt=""
@@ -316,7 +352,7 @@
               md:my-auto
               xl:-ml-9
               lg:w-96
-              xl:w-treesMd
+              xl:w-computerLg
             "
             src="./assets/images/computers.png"
             alt=""
@@ -434,7 +470,21 @@
         <img src="./assets/images/leftarr.png" alt="" />
       </div>
 
-      <div class="dots mb-3"></div>
+      <!-- dots are generated dynamically and initialized with the dot class so they need traditional css
+      -->
+
+      <div
+        class="
+          dots
+          z-10
+          absolute
+          bottom-0
+          left-1/2
+          transform
+          -translate-x-1/2
+          mb-3
+        "
+      ></div>
     </section>
 
     <div class="relative">
@@ -447,7 +497,8 @@
               mx-auto
               md:grid-cols-2
               lg:grid-cols-3 lg:max-w-7xl
-              gap-4
+              md:gap-4
+              gap-8
             "
           >
             <!-- single card -->
@@ -825,7 +876,8 @@
               mx-auto
               md:grid-cols-2
               lg:grid-cols-3 lg:max-w-7xl
-              gap-4
+              md:gap-4
+              gap-8
             "
           >
             <!-- single card -->
@@ -1083,7 +1135,11 @@
           transform
           -translate-x-2/4
           bottom-1/3
-          mb-40
+          mb-48
+          md:mb-10
+          xl:mt-80 xl:-mb-40 xl:-ml-20
+          lg:left-full lg:w-treesMd
+          xl:w-treesLg
         "
         src="./assets/images/trees.png"
         alt=""
@@ -1092,7 +1148,6 @@
 
     <!-- find a location -->
     <h2
-      id="location"
       class="
         font-gothamBold
         text-center
@@ -1105,45 +1160,87 @@
       Find a Branch or ATM
     </h2>
 
-    <div class="mt-9 w-10/12 ml-auto">
-      <div class="bg-adirondackGreen h-16 rounded-l-full">
-        <div class="flex justify-around h-full">
-          <!-- form and find a branch swap places at md -->
-          <h2
-            class="hidden md:block m-auto text-white font-gothamBook md:text-xl"
-          >
-            Find a Branch or ATM
-          </h2>
-          <input
-            class="h-2/4 w-36 m-auto"
-            type="text"
-            placeholder="Enter Zip"
-          />
-          <!-- arrow -->
-          <div class="bg-white w-9 h-9 rounded-full m-auto flex">
-            <!-- arrow svg -->
-            <svg
-              class="block m-auto ml-3.5"
-              id="noun_Right_Arrow_1918043"
-              data-name="noun_Right Arrow_1918043"
-              xmlns="http://www.w3.org/2000/svg"
-              width="9"
-              height="20"
-              viewBox="0 0 12 23"
-            >
-              <path
-                id="Path"
-                d="M0,22.309a.7.7,0,0,1,.2-.491L10.354,11.5.2,1.184A.7.7,0,0,1,.2.2a.674.674,0,0,1,.965,0L11.8,11.01a.7.7,0,0,1,0,.981L1.164,22.8a.676.676,0,0,1-.742.147A.7.7,0,0,1,0,22.309Z"
-              />
-            </svg>
-          </div>
-          <!-- end arrow -->
-        </div>
+    <!-- green thingy -->
+    <div
+      id="location"
+      class="mt-9 w-full grid grid-cols-12 grid-rows-1 ml-auto z-30 relative"
+    >
+      <div
+        class="
+          bg-adirondackGreen
+          rounded-l-full
+          h-16
+          col-start-2
+          md:col-start-3
+          lg:col-start-4
+          row-start-1 row-end-2
+          col-end-13
+          xl:h-24
+        "
+      ></div>
+      <h2
+        class="
+          hidden
+          md:block
+          m-auto
+          text-white
+          font-gothamBook
+          md:text-xl
+          lg:text-2xl
+          xl:text-3xl
+          row-start-1 row-end-2
+          col-start-1 col-end-13
+        "
+      >
+        Find a Branch or ATM
+      </h2>
+      <input
+        class="
+          h-2/4
+          w-36
+          m-auto
+          pl-3
+          font-gothamBook
+          col-start-1 col-end-13
+          row-start-1 row-end-2
+          md:col-start-7
+          lg:col-start-6
+          xl:col-start-6
+          2xl:col-start-5
+        "
+        type="text"
+        placeholder="Enter Zip"
+      />
+
+      <!-- arrow -->
+      <div
+        class="
+          bg-white
+          w-9
+          h-9
+          xl:w-12 xl:h-12
+          rounded-full
+          row-start-1 row-end-2
+          col-start-10
+          md:col-start-11
+          xl:col-start-10
+          2xl:mr-16
+          flex
+          m-auto
+        "
+      >
+        <!-- arrow -->
+        <img
+          class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+          src="./assets/images/rightarr.png"
+          alt=""
+        />
+        <!-- end arrow -->
       </div>
     </div>
 
     <!-- MAP -->
-    <div class="block overflow-hidden">
+    <div class="block relative overflow-hidden xl:-mt-11 -mt-7 z-0">
       <img
         class="block object-cover h-96 md:h-auto"
         src="../build/assets/images/google-map.jpg"
@@ -1192,6 +1289,11 @@
       <div><img src="./assets/images/FDIC.png" alt="" /></div>
     </div>
 
+    <!-- smooth scroll polyfill for macs -->
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
