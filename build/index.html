@@ -258,20 +258,20 @@
           <a
             href="#top-news"
             class="
-              xl:px-4
+              hover:bg-adirondackGold hover:bg-opacity-70
               px-2
               py-1
-              hover:bg-adirondackGold hover:bg-opacity-70
+              xl:px-4
             "
             >Latest News</a
           >
           <a
             href="#location"
             class="
-              xl:px-4
+              hover:bg-adirondackGold hover:bg-opacity-70
               px-2
               py-1
-              hover:bg-adirondackGold hover:bg-opacity-70
+              xl:px-4
             "
             >Locations</a
           >
@@ -283,26 +283,27 @@
     <section
       style="background-image: url(./assets/images/hero-no-padding.png)"
       class="
-        relative
-        z-50
-        overflow-x-hidden
-        w-full
-        h-mobileSlider
-        shadow-cardShadow
-        md:h-midSlider
-        xl:h-xlSlider
         2xl:h-twoXlSlider
+        h-mobileSlider
+        md:h-midSlider
+        overflow-x-hidden
+        relative
+        shadow-cardShadow
+        w-full
+        xl:h-xlSlider
+        z-50
       "
     >
       <div class="slider w-full h-full relative">
         <!-- CYBERSECURITY -->
+        <!-- all slides but 'active' slide will be translated off screen  -->
         <div
           class="
-            slide slide-1
-            relative
-            grid grid-cols-6 grid-rows-6
             active
+            grid grid-cols-6 grid-rows-6
             md:w-screen md:overflow-hidden md:grid-rows-4
+            relative
+            slide slide-1
           "
         >
           <!-- background -->
@@ -323,6 +324,7 @@
           <img
             class="
               -mt-9
+              2xl:w-computerLg
               col-start-2 col-end-6
               lg:w-96
               md:my-auto md:col-start-4 md:row-start-1 md:row-end-4 md:w-72
@@ -331,7 +333,6 @@
               self-center
               w-64
               xl:w-treesSm
-              2xl:w-computerLg
             "
             src="./assets/images/golden-shield.png"
             alt=""
@@ -340,19 +341,18 @@
           <img
             class="
               col-start-3 col-end-7
+              lg:w-96
+              md:col-end-4
+              md:col-start-2
+              md:my-auto
+              md:row-end-5
+              md:row-start-1
+              md:w-72
+              mx-auto
               row-start-1 row-end-4
               self-center
-              mx-auto
               w-32
-              md:col-start-2
-              md:col-end-4
-              md:row-start-1
-              md:row-end-5
-              md:w-72
-              md:my-auto
-              xl:-ml-9
-              lg:w-96
-              xl:w-computerLg
+              xl:-ml-9 xl:w-computerLg
             "
             src="./assets/images/computers.png"
             alt=""
@@ -360,36 +360,34 @@
           <!-- button -->
           <div
             class="
-              col-start-3 col-end-5
-              row-start-5
-              w-full
-              md:mt-4 md:col-start-4 md:col-end-6
-              lg:pt-6
-              xl:pt-12
               2xl:ml-6
+              col-start-3 col-end-5
               flex
               justify-center
-              md:row-start-3
+              lg:pt-6
+              md:mt-4 md:col-start-4 md:col-end-6 md:row-start-3
+              row-start-5
+              w-full
+              xl:pt-12
             "
           >
             <a
               class="
+                2xl:mt-16 2xl:w-60 2xl:h-16
                 bg-adirondackGold
-                font-gothamBook
                 cursor-pointer
                 flex
+                font-gothamBook
                 h-11
                 hover:opacity-80
                 justify-center
-                md:w-36
                 lg:w-40 lg:h-12
-                2xl:mt-16
-                xl:w-48
-                2xl:w-60 2xl:h-16
+                md:w-36
                 mt-10
                 mx-auto
                 rounded-lg
                 w-32
+                xl:w-48
                 z-30
               "
               ><span class="2xl:text-xl block m-auto"> Learn More</span>
@@ -397,37 +395,42 @@
           </div>
         </div>
         <!-- END CYBERSECURITY -->
+        <!-- ADIRONDACK MOUNTAINS -->
         <div class="slide slide-2">
           <img
             class="
-              md:w-screen md:object-cover md:h-full
               h-mobileSlider
-              w-screen
+              md:w-screen md:object-cover md:h-full
               object-cover
+              w-screen
             "
             src="./assets/images/adirondacks.jpg"
             alt=""
           />
         </div>
+
+        <!-- CREDIT CARD -->
         <div class="slide slide-3">
           <img
             class="
-              md:w-screen md:object-cover md:h-full
               h-mobileSlider
-              w-screen
+              md:w-screen md:object-cover md:h-full
               object-cover
+              w-screen
             "
             src="./assets/images/bankingcyber.jpg"
             alt=""
           />
         </div>
+
+        <!-- NO STRANGER TO LOVE -->
         <div class="slide slide-4">
           <img
             class="
-              md:w-screen md:object-cover md:h-full
               h-mobileSlider
-              w-screen
+              md:w-screen md:object-cover md:h-full
               object-cover
+              w-screen
             "
             src="./assets/images/rick2.png"
             alt=""
@@ -437,18 +440,18 @@
 
       <div
         class="
+          absolute
           arrow
+          bottom-1/2
           cursor-pointer
           hover:opacity-70
-          next
-          w-7
           lg:w-10 lg:right-10
-          xl:w-14 xl:right-14
-          absolute
+          next
           right-3
-          bottom-1/2
           transform
           translate-y-2/4
+          w-7
+          xl:w-14 xl:right-14
           z-10
         "
       >
@@ -456,19 +459,19 @@
       </div>
       <div
         class="
+          absolute
           arrow
+          bottom-1/2
           cursor-pointer
           hover:opacity-70
-          lg:w-10 lg:left-10
-          xl:w-14 xl:left-14
-          prev
           left-3
-          bottom-1/2
-          w-7
-          z-10
-          absolute
+          lg:w-10 lg:left-10
+          prev
           transform
           translate-y-2/4
+          w-7
+          xl:w-14 xl:left-14
+          z-10
         "
       >
         <img src="./assets/images/leftarr.png" alt="" />
@@ -479,14 +482,14 @@
 
       <div
         class="
-          dots
-          z-10
+          -translate-x-1/2
           absolute
           bottom-0
+          dots
           left-1/2
-          transform
-          -translate-x-1/2
           mb-3
+          transform
+          z-10
         "
       ></div>
     </section>
@@ -497,12 +500,11 @@
         <div>
           <div
             class="
-              grid grid-cols-1
-              mx-auto
-              md:grid-cols-2
-              lg:grid-cols-3 lg:max-w-7xl
-              md:gap-4
               gap-8
+              grid grid-cols-1
+              lg:grid-cols-3 lg:max-w-7xl
+              md:gap-4 md:grid-cols-2
+              mx-auto
             "
           >
             <!-- single card -->
@@ -512,9 +514,9 @@
                 class="
                   grid grid-rows-6 grid-cols-1
                   h-96
-                  xl:h-cardsLarge
-                  shadow-cardShadow
                   mx-auto
+                  shadow-cardShadow
+                  xl:h-cardsLarge
                 "
               >
                 <!-- card image placeholder -->
@@ -522,10 +524,10 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-24
                       h-16
                       m-auto
                       rounded-lg
+                      w-24
                       xl:w-36 xl:h-28
                     "
                   ></div>
@@ -533,12 +535,11 @@
                 <!-- card text -->
                 <div
                   class="
-                    row-start-4
-                    text-adirondackGreen
-                    px-4
                     leading-5
-                    text-center
                     mt-4
+                    px-4
+                    row-start-4
+                    text-adirondackGreen text-center
                   "
                 >
                   <h3 class="mx-auto font-gothamBold xl:text-xl xl:mt-3">
@@ -546,11 +547,11 @@
                   </h3>
                   <p
                     class="
-                      p-1
-                      font-gothamBook
-                      w-11/12
                       block
+                      font-gothamBook
                       mx-auto
+                      p-1
+                      w-11/12
                       xl:text-lg xl:max-w-firstCardLorem
                     "
                   >
@@ -561,10 +562,10 @@
                 <!-- card button -->
                 <div
                   class="
-                    row-start-5 row-end-7
                     m-auto
-                    w-18
                     mt-12
+                    row-start-5 row-end-7
+                    w-18
                     xl:mt-16 xl:pt-2
                   "
                 >
@@ -575,18 +576,17 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-9
-                      h-9
-                      xl:w-12 xl:h-12
-                      rounded-full
-                      mx-auto
+                      cursor-pointer
                       flex
+                      h-9
+                      hover:bg-adirondackGold
                       m-auto
                       mt-2
-                      xl:mt-0
-                      cursor-pointer
-                      hover:bg-adirondackGold
+                      mx-auto
+                      rounded-full
                       transition-all
+                      w-9
+                      xl:mt-0 xl:w-12 xl:h-12
                     "
                   >
                     <!-- arrow graphic -->
@@ -608,9 +608,9 @@
                 class="
                   grid grid-rows-6 grid-cols-1
                   h-96
-                  xl:h-cardsLarge
-                  shadow-cardShadow
                   mx-auto
+                  shadow-cardShadow
+                  xl:h-cardsLarge
                 "
               >
                 <!-- card image placeholder -->
@@ -618,10 +618,10 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-24
                       h-16
                       m-auto
                       rounded-lg
+                      w-24
                       xl:w-36 xl:h-28
                     "
                   ></div>
@@ -629,12 +629,11 @@
                 <!-- card text -->
                 <div
                   class="
-                    row-start-4
-                    text-adirondackGreen
-                    px-4
                     leading-5
-                    text-center
                     mt-4
+                    px-4
+                    row-start-4
+                    text-adirondackGreen text-center
                   "
                 >
                   <h3 class="mx-auto font-gothamBold xl:text-xl xl:mt-3">
@@ -642,11 +641,11 @@
                   </h3>
                   <p
                     class="
-                      p-1
-                      font-gothamBook
-                      w-11/12
                       block
+                      font-gothamBook
                       mx-auto
+                      p-1
+                      w-11/12
                       xl:text-lg xl:max-w-firstCardLorem
                     "
                   >
@@ -657,10 +656,10 @@
                 <!-- card button -->
                 <div
                   class="
-                    row-start-5 row-end-7
                     m-auto
-                    w-18
                     mt-12
+                    row-start-5 row-end-7
+                    w-18
                     xl:mt-16 xl:pt-2
                   "
                 >
@@ -671,18 +670,17 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-9
-                      h-9
-                      xl:w-12 xl:h-12
-                      rounded-full
-                      mx-auto
+                      cursor-pointer
                       flex
+                      h-9
+                      hover:bg-adirondackGold
                       m-auto
                       mt-2
-                      xl:mt-0
-                      cursor-pointer
-                      hover:bg-adirondackGold
+                      mx-auto
+                      rounded-full
                       transition-all
+                      w-9
+                      xl:mt-0 xl:w-12 xl:h-12
                     "
                   >
                     <!-- arrow graphic -->
@@ -704,9 +702,9 @@
                 class="
                   grid grid-rows-6 grid-cols-1
                   h-96
-                  xl:h-cardsLarge
-                  shadow-cardShadow
                   mx-auto
+                  shadow-cardShadow
+                  xl:h-cardsLarge
                 "
               >
                 <!-- card image placeholder -->
@@ -725,12 +723,11 @@
                 <!-- card text -->
                 <div
                   class="
-                    row-start-4
-                    text-adirondackGreen
-                    px-4
                     leading-5
-                    text-center
                     mt-4
+                    px-4
+                    row-start-4
+                    text-adirondackGreen text-center
                   "
                 >
                   <h3 class="mx-auto font-gothamBold xl:text-xl xl:mt-3">
@@ -738,11 +735,11 @@
                   </h3>
                   <p
                     class="
-                      p-1
-                      font-gothamBook
-                      w-11/12
                       block
+                      font-gothamBook
                       mx-auto
+                      p-1
+                      w-11/12
                       xl:text-lg xl:max-w-firstCardLorem
                     "
                   >
@@ -753,10 +750,10 @@
                 <!-- card button -->
                 <div
                   class="
-                    row-start-5 row-end-7
                     m-auto
-                    w-18
                     mt-12
+                    row-start-5 row-end-7
+                    w-18
                     xl:mt-16 xl:pt-2
                   "
                 >
@@ -767,18 +764,17 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-9
-                      h-9
-                      xl:w-12 xl:h-12
-                      rounded-full
-                      mx-auto
+                      cursor-pointer
                       flex
+                      h-9
+                      hover:bg-adirondackGold
                       m-auto
                       mt-2
-                      xl:mt-0
-                      cursor-pointer
-                      hover:bg-adirondackGold
+                      mx-auto
+                      rounded-full
                       transition-all
+                      w-9
+                      xl:mt-0 xl:w-12 xl:h-12
                     "
                   >
                     <!-- arrow graphic -->
@@ -805,34 +801,32 @@
       >
         <div
           class="
+            2xl:col-end-9
             bg-adirondackGreen
+            col-end-12 col-start-1
+            fiveHundred:col-end-11
             h-16
-            xl:h-24
+            lg:col-end-11
+            md:col-end-11
             my-auto
             rounded-r-full
-            col-start-1
             row-start-1 row-end-2
-            col-end-12
-            md:col-end-11
-            lg:col-end-11
-            xl:col-end-10
-            2xl:col-end-9
-            fiveHundred:col-end-11
+            xl:col-end-10 xl:h-24
           "
         ></div>
 
         <h2
           class="
-            my-auto
-            m-auto
-            fiveHundred:col-span-full fiveHundred:col-end-13
             col-start-1 col-end-8
+            fiveHundred:col-span-full fiveHundred:col-end-13
+            font-gothamBook
+            lg:text-2xl
+            m-auto
+            md:text-xl
+            my-auto
             pl-1
             row-start-1 row-end-2
             text-white
-            font-gothamBook
-            md:text-xl
-            lg:text-2xl
             xl:text-3xl
           "
         >
@@ -841,23 +835,21 @@
         <!-- arrow -->
         <div
           class="
-            bg-white
-            w-9
-            h-9
-            rounded-full
-            col-start-10
-            fiveHundred:col-start-10
-            row-start-1 row-end-2
-            xl:col-start-9
             2xl:col-start-8 2xl:ml-16
-            my-auto
-            md:mx-5 md:my-auto
-            flex
-            md:flex-shrink
+            bg-white
+            col-start-10
             cursor-pointer
+            fiveHundred:col-start-10
+            flex
+            h-9
             hover:bg-gray-200
+            md:flex-shrink md:mx-5 md:my-auto
+            my-auto
+            rounded-full
+            row-start-1 row-end-2
             transition-all
-            xl:w-12 xl:h-12
+            w-9
+            xl:col-start-9 xl:w-12 xl:h-12
           "
         >
           <!-- arrow svg -->
@@ -891,9 +883,9 @@
                 class="
                   grid grid-rows-6 grid-cols-1
                   h-96
-                  xl:h-cardsLarge
-                  shadow-cardShadow
                   mx-auto
+                  shadow-cardShadow
+                  xl:h-cardsLarge
                 "
               >
                 <!-- card image placeholder -->
@@ -907,12 +899,11 @@
                 <!-- card text -->
                 <div
                   class="
-                    row-start-4
-                    text-adirondackGreen
-                    px-4
                     leading-5
-                    text-center
                     mt-4
+                    px-4
+                    row-start-4
+                    text-adirondackGreen text-center
                   "
                 >
                   <h3 class="mx-auto font-gothamBold text-left pl-2 xl:text-xl">
@@ -921,13 +912,11 @@
                   </h3>
                   <p
                     class="
-                      p-1
                       font-gothamBook
-                      text-left
+                      p-1
                       pl-2
-                      text-sm
+                      text-bottomCardGray text-left text-sm
                       xl:text-base xl:mt-5
-                      text-bottomCardGray
                     "
                   >
                     You (the Borrower) can apply for forgiveness of your
@@ -942,18 +931,17 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-9
-                      h-9
-                      xl:w-12 xl:h-12
-                      rounded-full
-                      mx-auto
+                      cursor-pointer
                       flex
+                      h-9
+                      hover:bg-adirondackGold
                       m-auto
                       mt-6
-                      xl:mt-6
-                      cursor-pointer
-                      hover:bg-adirondackGold
+                      mx-auto
+                      rounded-full
                       transition-all
+                      w-9
+                      xl:mt-6 xl:w-12 xl:h-12
                     "
                   >
                     <!-- arrow graphic -->
@@ -975,9 +963,9 @@
                 class="
                   grid grid-rows-6 grid-cols-1
                   h-96
-                  xl:h-cardsLarge
-                  shadow-cardShadow
                   mx-auto
+                  shadow-cardShadow
+                  xl:h-cardsLarge
                 "
               >
                 <!-- card image placeholder -->
@@ -991,12 +979,11 @@
                 <!-- card text -->
                 <div
                   class="
-                    row-start-4
-                    text-adirondackGreen
-                    px-4
                     leading-5
-                    text-center
                     mt-4
+                    px-4
+                    row-start-4
+                    text-adirondackGreen text-center
                   "
                 >
                   <h3 class="mx-auto font-gothamBold text-left pl-2 xl:text-xl">
@@ -1004,13 +991,11 @@
                   </h3>
                   <p
                     class="
-                      p-1
                       font-gothamBook
-                      text-left
+                      p-1
                       pl-2
-                      text-sm
+                      text-bottomCardGray text-left text-sm
                       xl:text-base xl:mt-5
-                      text-bottomCardGray
                     "
                   >
                     The Paycheck Protection Program (PPP) loan program has been
@@ -1025,18 +1010,17 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-9
-                      h-9
-                      xl:w-12 xl:h-12
-                      rounded-full
-                      mx-auto
+                      cursor-pointer
                       flex
+                      h-9
+                      hover:bg-adirondackGold
                       m-auto
                       mt-6
-                      xl:mt-6
-                      cursor-pointer
-                      hover:bg-adirondackGold
+                      mx-auto
+                      rounded-full
                       transition-all
+                      w-9
+                      xl:mt-6 xl:w-12 xl:h-12
                     "
                   >
                     <!-- arrow graphic -->
@@ -1058,9 +1042,9 @@
                 class="
                   grid grid-rows-6 grid-cols-1
                   h-96
-                  xl:h-cardsLarge
-                  shadow-cardShadow
                   mx-auto
+                  shadow-cardShadow
+                  xl:h-cardsLarge
                 "
               >
                 <!-- card image placeholder -->
@@ -1074,12 +1058,11 @@
                 <!-- card text -->
                 <div
                   class="
-                    row-start-4
-                    text-adirondackGreen
-                    px-4
                     leading-5
-                    text-center
                     mt-4
+                    px-4
+                    row-start-4
+                    text-adirondackGreen text-center
                   "
                 >
                   <h3 class="font-gothamBold mx-auto text-left pl-2 xl:text-xl">
@@ -1087,13 +1070,11 @@
                   </h3>
                   <p
                     class="
-                      p-1
                       font-gothamBook
-                      text-left
+                      p-1
                       pl-2
-                      text-sm
+                      text-bottomCardGray text-left text-sm
                       xl:text-base xl:mt-5
-                      text-bottomCardGray
                     "
                   >
                     We're so happy to see you again! Our branches have re-opened
@@ -1108,18 +1089,17 @@
                   <div
                     class="
                       bg-adirondackGreen
-                      w-9
-                      h-9
-                      xl:w-12 xl:h-12
-                      rounded-full
-                      mx-auto
+                      cursor-pointer
                       flex
+                      h-9
+                      hover:bg-adirondackGold
                       m-auto
                       mt-6
-                      xl:mt-6
-                      cursor-pointer
-                      hover:bg-adirondackGold
+                      mx-auto
+                      rounded-full
                       transition-all
+                      w-9
+                      xl:mt-6 xl:w-12 xl:h-12
                     "
                   >
                     <!-- arrow graphic -->
@@ -1140,18 +1120,17 @@
       <!-- cards 2 wrapper end -->
       <img
         class="
-          z-0
-          absolute
-          w-treesSm
-          left-2/4
-          transform
           -translate-x-2/4
+          absolute
           bottom-1/3
+          left-2/4
+          lg:left-full lg:w-treesMd
           mb-48
           md:mb-10
-          xl:mt-80 xl:-mb-40 xl:-ml-20
-          lg:left-full lg:w-treesMd
-          xl:w-treesLg
+          transform
+          w-treesSm
+          xl:mt-80 xl:-mb-40 xl:-ml-20 xl:w-treesLg
+          z-0
         "
         src="./assets/images/trees.png"
         alt=""
@@ -1162,11 +1141,9 @@
     <h2
       class="
         font-gothamBold
-        text-center
-        mt-14
-        text-2xl
         md:hidden
-        text-adirondackGreen
+        mt-14
+        text-2xl text-adirondackGreen text-center
       "
     >
       Find a Branch or ATM
@@ -1180,45 +1157,43 @@
       <div
         class="
           bg-adirondackGreen
-          rounded-l-full
+          col-end-13 col-start-2
           h-16
-          col-start-2
-          md:col-start-3
           lg:col-start-4
+          md:col-start-3
+          rounded-l-full
           row-start-1 row-end-2
-          col-end-13
           xl:h-24
         "
       ></div>
       <h2
         class="
-          hidden
-          md:block
-          m-auto
-          text-white
-          font-gothamBook
-          md:text-xl
-          lg:text-2xl
-          xl:text-3xl
-          row-start-1 row-end-2
           col-start-1 col-end-13
+          font-gothamBook
+          hidden
+          lg:text-2xl
+          m-auto
+          md:block md:text-xl
+          row-start-1 row-end-2
+          text-white
+          xl:text-3xl
         "
       >
         Find a Branch or ATM
       </h2>
       <input
         class="
-          h-2/4
-          w-36
-          m-auto
-          pl-3
-          font-gothamBook
-          col-start-1 col-end-13
-          row-start-1 row-end-2
-          md:col-start-7
-          lg:col-start-6
-          xl:col-start-6
           2xl:col-start-5
+          col-start-1 col-end-13
+          font-gothamBook
+          h-2/4
+          lg:col-start-6
+          m-auto
+          md:col-start-7
+          pl-3
+          row-start-1 row-end-2
+          w-36
+          xl:col-start-6
         "
         type="text"
         placeholder="Enter Zip"
@@ -1227,20 +1202,19 @@
       <!-- arrow -->
       <div
         class="
+          2xl:mr-16
           bg-white
-          hover:bg-gray-200
+          col-start-10
           cursor-pointer
-          w-9
+          flex
           h-9
-          xl:w-12 xl:h-12
+          hover:bg-gray-200
+          m-auto
+          md:col-start-11
           rounded-full
           row-start-1 row-end-2
-          col-start-10
-          md:col-start-11
-          xl:col-start-10
-          2xl:mr-16
-          flex
-          m-auto
+          w-9
+          xl:col-start-10 xl:w-12 xl:h-12
         "
       >
         <!-- arrow -->
@@ -1265,9 +1239,9 @@
     <!-- FOOTER -->
     <div
       class="
-        mt-12
-        mb-16
         lg:grid lg:grid-cols-12 lg:grid-rows-12
+        mb-16
+        mt-12
         xl:mt-32 xl:mb-32
       "
     >
@@ -1291,15 +1265,14 @@
         <!-- address  -->
         <div
           class="
-            mx-auto
-            text-center
-            relative
             font-gothamBook
-            text-footerGray
-            mt-4
-            mb-4
-            w-52
             lg:mt-9
+            mb-4
+            mt-4
+            mx-auto
+            relative
+            text-center text-footerGray
+            w-52
           "
         >
           <img
@@ -1318,27 +1291,27 @@
       <!-- privacy -->
       <div
         class="
-          mt-9
-          lg:mt-0
           lg:-mb-5
-          lg:col-start-1
           lg:col-end-6
-          lg:mx-auto
-          lg:row-start-5
-          lg:row-end-7
+          lg:col-start-1
           lg:max-w-md
+          lg:mt-0
+          lg:mx-auto
+          lg:row-end-7
+          lg:row-start-5
+          mt-9
         "
       >
         <img class="mx-auto lg:ml-0" src="./assets/images/FDIC.png" alt="" />
         <ul
           class="
             flex
+            justify-around
+            lg:mt-6 lg:justify-start
+            max-w-md
+            mt-9
             mx-auto
             w-full
-            lg:mt-6 lg:justify-start
-            justify-around
-            mt-9
-            max-w-md
           "
         >
           <li class="lg:mr-3">Privacy Policy</li>
@@ -1350,11 +1323,11 @@
       <!-- LINK TO TRAINOR -->
       <p
         class="
-          mt-9
+          lg:col-start-9 lg:col-end-12 lg:row-start-6 lg:row-end-11
           max-w-md
+          mt-9
           mx-auto
           text-center
-          lg:col-start-9 lg:col-end-12 lg:row-start-6 lg:row-end-11
         "
       >
         Digital by
@@ -1366,20 +1339,20 @@
     <a
       href="#header"
       class="
-        w-full
-        mx-auto
-        flex
         -mb-14
-        md:hidden
+        bg-adirondackGreen
+        flex
+        hover:opacity-90
+        lg:hidden
+        mx-auto
         pb-5
         shadow-cardShadow
-        hover:opacity-90
-        bg-adirondackGreen
+        w-full
       "
     >
       <button
         id="toTopButton"
-        class="relative md:hidden cursor-pointer h-12 mx-auto z-50"
+        class="relative cursor-pointer h-12 mx-auto z-50"
       >
         <img
           class="transform -rotate-90 w-12 mx-auto"
