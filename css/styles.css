@@ -5,6 +5,7 @@
 @layer base {
   @font-face {
     font-family: 'GothamBold';
+    font-weight: 700;
     src: url(../build/assets/fonts/gothambold1.woff) format('woff');
   }
 
