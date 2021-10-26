@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Adirondack Bank</title>
+    <style>
+      .slider {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        position: absolute;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .top {
+        z-index: 3;
+        transition: 0.5s ease transform;
+      }
+      .slide.active {
+        z-index: 3;
+        transform: translateX(0);
+      }
+      .slide.transition {
+        transition: 0.5s ease transform;
+      }
+
+      .dots {
+        z-index: 5;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .dots .dot {
+        display: inline-block;
+        height: 10px;
+        width: 10px;
+        background-color: rgba(255, 255, 255, 0.185);
+        border-radius: 10px;
+        margin: 7px;
+        transition: 0.3s ease width;
+        cursor: pointer;
+      }
+      .dots .dot.active {
+        background-color: white;
+      }
+
+      .slide-1 {
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+      }
+    </style>
+  </head>
+  <body class="max-w-ultrawideClamp mx-auto overflow-x-hidden">
+    <!-- header wrapper -->
+    <header class="block bg-white realtive relative z-50 top-0">
+      <!-- header grid -->
+      <div
+        class="
+          p-1
+          w-full
+          md:mx-auto
+          flex
+          md:grid md:grid-cols-6 md:grid-rows-3 md:h-28
+          flex-wrap
+          md:justify-between
+          xl:h-40
+        "
+      >
+        <p
+          class="
+            font-gothamBold
+            p-1
+            pl-3
+            pb-0
+            text-xs
+            order-2
+            md:order-1
+            md:col-start-1
+            md:col-end-3
+            md:text-base
+            md:row-start-1
+            md:row-end-4
+            md:m-auto
+            lg:text-lg
+            xl:text-xl
+          "
+        >
+          Visit <a class="text-adirondackGreen">adirondackbank.com</a>
+        </p>
+        <!-- LOGO -->
+        <div
+          class="
+            order-1
+            md:order-2
+            md:col-start-3
+            md:col-end-5
+            md:row-start-1
+            md:row-end-4
+            md:m-auto
+            w-full
+            md:block md:w-max md:mx-auto
+            pt-1
+          "
+        >
+          <img
+            class="p-3 w-56 md:w-72 xl:w-96 md:mx-auto"
+            src="./assets/images/logo-top.png"
+          />
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div
+          class="
+            z-50
+            md:hidden
+            flex
+            items-center
+            absolute
+            right-3
+            top-3
+            bg-adirondackGreen
+            shadow-mobileMenu
+          "
+        >
+          <button class="outline-none mobile-menu-button">
+            <svg
+              class="w-14 h-14 text-white"
+              x-show="!showMenu"
+              fill="none"
+              stroke-linecap=""
+              stroke-linejoin=""
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- HIDDEN MOBILE LINKS -->
+        <div class="hidden mobile-menu transition-all w-full">
+          <img
+            class="z-0 w-36 absolute left-40 top-3"
+            src="./assets/images/trees.png"
+            alt=""
+          />
+          <ul class="">
+            <li class="">
+              <a
+                href="#"
+                class="
+                  block
+                  text-sm
+                  px-2
+                  py-4
+                  text-adirondackGreen
+                  font-gothamBold
+                "
+                >Promotions & Offers</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="
+                  block
+                  text-sm
+                  px-2
+                  py-4
+                  text-adirondackGreen
+                  font-gothamBold
+                  transition
+                  duration-300
+                "
+                >Latest News</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="
+                  block
+                  text-sm
+                  px-2
+                  py-4
+                  text-adirondackGreen
+                  font-gothamBold
+                  transition
+                  duration-300
+                "
+                >Locations</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- END HIDDEN MOBILE LINKS -->
+
+        <!-- DESKTOP LINKS -->
+        <ul
+          class="
+            text-adirondackGreen
+            order-3
+            font-gothamBold
+            md:flex
+            md:flex-wrap
+            md:col-start-5
+            md:col-end-7
+            md:row-start-1
+            md:row-end-4
+            md:m-auto
+            text-sm
+            xl:text-lg
+            hidden
+          "
+        >
+          <li class="p-2">Promotions & Offers</li>
+          <li class="p-2">Latest News</li>
+          <li class="p-2">Locations</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- CAROUSEL -->
+    <section
+      style="background-image: url(./assets/images/hero-no-padding.png)"
+      class="
+        relative
+        z-50
+        overflow-x-hidden
+        w-full
+        h-mobileSlider
+        shadow-cardShadow
+        md:h-midSlider
+        xl:h-xlSlider
+        2xl:h-twoXlSlider
+      "
+    >
+      <div class="slider relative">
+        <!-- CYBERSECURITY -->
+        <div
+          class="
+            slide slide-1
+            relative
+            grid grid-cols-6 grid-rows-6
+            active
+            md:w-screen md:overflow-hidden md:grid-rows-4
+          "
+        >
+          <!-- background -->
+          <img
+            class="
+              col-span-full
+              row-span-full
+              overflow-hidden
+              md:object-cover
+              h-mobileSlider
+              md:h-midSlider
+              xl:h-xlSlider
+              2xl:h-twoXlSlider
+              md:w-screen
+            "
+            src="./assets/images/hero-no-padding.png"
+            alt=""
+          />
+          <!-- shield -->
+          <img
+            class="
+              col-start-2 col-end-6
+              row-start-2 row-end-7
+              self-center
+              mx-auto
+              w-64
+              -mt-9
+              md:my-auto md:col-start-4 md:row-start-1 md:row-end-4 md:w-72
+              lg:w-11/12
+              xl:w-9/12 xl:max-w-2xl
+            "
+            src="./assets/images/golden-shield.png"
+            alt=""
+          />
+          <!-- computer -->
+          <img
+            class="
+              col-start-3 col-end-7
+              row-start-1 row-end-4
+              self-center
+              mx-auto
+              w-32
+              md:col-start-2
+              md:col-end-4
+              md:row-start-1
+              md:row-end-5
+              md:w-72
+              md:my-auto
+            "
+            src="./assets/images/computers.png"
+            alt=""
+          />
+          <!-- button -->
+          <div
+            class="
+              col-start-3 col-end-5
+              row-start-5
+              w-full
+              md:mt-4 md:col-start-4 md:col-end-6
+              flex
+              justify-center
+              md:row-start-3
+            "
+          >
+            <a
+              class="
+                bg-adirondackGold
+                flex
+                w-28
+                md:w-36
+                h-11
+                rounded
+                cursor-pointer
+                hover:opacity-80
+                justify-center
+                z-30
+                mt-10
+                mx-auto
+              "
+              ><span class="block m-auto"> Learn More</span>
+            </a>
+          </div>
+        </div>
+        <!-- END CYBERSECURITY -->
+        <div class="slide slide-2">
+          <img
+            class="
+              md:w-screen md:object-cover md:h-full
+              h-mobileSlider
+              w-screen
+              object-cover
+            "
+            src="./assets/images/adirondacks.jpg"
+            alt=""
+          />
+        </div>
+        <div class="slide slide-3">
+          <img
+            class="
+              md:w-screen md:object-cover md:h-full
+              h-mobileSlider
+              w-screen
+              object-cover
+            "
+            src="./assets/images/bankingcyber.jpg"
+            alt=""
+          />
+        </div>
+        <div class="slide slide-4">
+          <img
+            class="
+              md:w-screen md:object-cover md:h-full
+              h-mobileSlider
+              w-screen
+              object-cover
+            "
+            src="./assets/images/rick2.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div
+        class="
+          arrow
+          cursor-pointer
+          hover:opacity-70
+          next
+          w-7
+          absolute
+          right-3
+          bottom-1/2
+          transform
+          translate-y-2/4
+          z-10
+        "
+      >
+        <img src="./assets/images/rightarr.png" alt="" />
+      </div>
+      <div
+        class="
+          arrow
+          cursor-pointer
+          hover:opacity-70
+          prev
+          left-3
+          bottom-1/2
+          w-7
+          z-10
+          absolute
+          transform
+          translate-y-2/4
+        "
+      >
+        <img src="./assets/images/leftarr.png" alt="" />
+      </div>
+
+      <div class="dots mb-3"></div>
+    </section>
+
+    <div class="relative">
+      <!-- cards 1 wrapper -->
+      <div class="mt-20 mb-24 pt-3 pb-3">
+        <div>
+          <div
+            class="
+              grid grid-cols-1
+              mx-auto
+              md:grid-cols-2
+              lg:grid-cols-3 lg:max-w-7xl
+              gap-4
+            "
+          >
+            <!-- single card -->
+            <div class="w-80 xl:w-96 mx-auto list-none z-10 bg-white">
+              <!-- single card grid -->
+              <div
+                class="
+                  grid grid-rows-6 grid-cols-1
+                  h-96
+                  xl:h-cardsLarge
+                  shadow-cardShadow
+                  mx-auto
+                "
+              >
+                <!-- card image placeholder -->
+                <div class="h-40 xl:h-56 bg-cardGray m-5 flex">
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-24
+                      h-16
+                      m-auto
+                      rounded-lg
+                      xl:w-36 xl:h-28
+                    "
+                  ></div>
+                </div>
+                <!-- card text -->
+                <div
+                  class="
+                    row-start-4
+                    text-adirondackGreen
+                    px-4
+                    leading-5
+                    text-center
+                    mt-4
+                  "
+                >
+                  <h3 class="mx-auto font-gothamBold xl:text-xl xl:mt-3">
+                    CAMPAIGN TITLE
+                  </h3>
+                  <p
+                    class="
+                      p-1
+                      font-gothamBook
+                      w-11/12
+                      block
+                      mx-auto
+                      xl:text-lg xl:max-w-firstCardLorem
+                    "
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    aliquam a urna est.
+                  </p>
+                </div>
+                <!-- card button -->
+                <div
+                  class="
+                    row-start-5 row-end-7
+                    m-auto
+                    w-18
+                    mt-12
+                    xl:mt-16 xl:pt-2
+                  "
+                >
+                  <small class="text-center font-gothamBook xl:text-lg"
+                    >Get Started</small
+                  >
+                  <!-- arrow -->
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-9
+                      h-9
+                      xl:w-12 xl:h-12
+                      rounded-full
+                      mx-auto
+                      flex
+                      m-auto
+                      mt-2
+                      xl:mt-0
+                      cursor-pointer
+                      hover:bg-adirondackGold
+                      transition-all
+                    "
+                  >
+                    <!-- arrow graphic -->
+                    <img
+                      class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+                      src="./assets/images/rightarr.png"
+                      alt=""
+                    />
+                  </div>
+                  <!-- end arrow -->
+                </div>
+              </div>
+            </div>
+            <!-- end single card -->
+            <!-- single card -->
+            <div class="w-80 xl:w-96 mx-auto list-none z-10 bg-white">
+              <!-- single card grid -->
+              <div
+                class="
+                  grid grid-rows-6 grid-cols-1
+                  h-96
+                  xl:h-cardsLarge
+                  shadow-cardShadow
+                  mx-auto
+                "
+              >
+                <!-- card image placeholder -->
+                <div class="h-40 xl:h-56 bg-cardGray m-5 flex">
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-24
+                      h-16
+                      m-auto
+                      rounded-lg
+                      xl:w-36 xl:h-28
+                    "
+                  ></div>
+                </div>
+                <!-- card text -->
+                <div
+                  class="
+                    row-start-4
+                    text-adirondackGreen
+                    px-4
+                    leading-5
+                    text-center
+                    mt-4
+                  "
+                >
+                  <h3 class="mx-auto font-gothamBold xl:text-xl xl:mt-3">
+                    CAMPAIGN TITLE
+                  </h3>
+                  <p
+                    class="
+                      p-1
+                      font-gothamBook
+                      w-11/12
+                      block
+                      mx-auto
+                      xl:text-lg xl:max-w-firstCardLorem
+                    "
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    aliquam a urna est.
+                  </p>
+                </div>
+                <!-- card button -->
+                <div
+                  class="
+                    row-start-5 row-end-7
+                    m-auto
+                    w-18
+                    mt-12
+                    xl:mt-16 xl:pt-2
+                  "
+                >
+                  <small class="text-center font-gothamBook xl:text-lg"
+                    >Get Started</small
+                  >
+                  <!-- arrow -->
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-9
+                      h-9
+                      xl:w-12 xl:h-12
+                      rounded-full
+                      mx-auto
+                      flex
+                      m-auto
+                      mt-2
+                      xl:mt-0
+                      cursor-pointer
+                      hover:bg-adirondackGold
+                      transition-all
+                    "
+                  >
+                    <!-- arrow graphic -->
+                    <img
+                      class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+                      src="./assets/images/rightarr.png"
+                      alt=""
+                    />
+                  </div>
+                  <!-- end arrow -->
+                </div>
+              </div>
+            </div>
+            <!-- end single card -->
+            <!-- single card -->
+            <div class="w-80 xl:w-96 mx-auto list-none bg-white z-10">
+              <!-- single card grid -->
+              <div
+                class="
+                  grid grid-rows-6 grid-cols-1
+                  h-96
+                  xl:h-cardsLarge
+                  shadow-cardShadow
+                  mx-auto
+                "
+              >
+                <!-- card image placeholder -->
+                <div class="h-40 xl:h-56 bg-cardGray m-5 flex">
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-24
+                      h-16
+                      m-auto
+                      rounded-lg
+                      xl:w-36 xl:h-28
+                    "
+                  ></div>
+                </div>
+                <!-- card text -->
+                <div
+                  class="
+                    row-start-4
+                    text-adirondackGreen
+                    px-4
+                    leading-5
+                    text-center
+                    mt-4
+                  "
+                >
+                  <h3 class="mx-auto font-gothamBold xl:text-xl xl:mt-3">
+                    CAMPAIGN TITLE
+                  </h3>
+                  <p
+                    class="
+                      p-1
+                      font-gothamBook
+                      w-11/12
+                      block
+                      mx-auto
+                      xl:text-lg xl:max-w-firstCardLorem
+                    "
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    aliquam a urna est.
+                  </p>
+                </div>
+                <!-- card button -->
+                <div
+                  class="
+                    row-start-5 row-end-7
+                    m-auto
+                    w-18
+                    mt-12
+                    xl:mt-16 xl:pt-2
+                  "
+                >
+                  <small class="text-center font-gothamBook xl:text-lg"
+                    >Get Started</small
+                  >
+                  <!-- arrow -->
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-9
+                      h-9
+                      xl:w-12 xl:h-12
+                      rounded-full
+                      mx-auto
+                      flex
+                      m-auto
+                      mt-2
+                      xl:mt-0
+                      cursor-pointer
+                      hover:bg-adirondackGold
+                      transition-all
+                    "
+                  >
+                    <!-- arrow graphic -->
+                    <img
+                      class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+                      src="./assets/images/rightarr.png"
+                      alt=""
+                    />
+                  </div>
+                  <!-- end arrow -->
+                </div>
+              </div>
+            </div>
+            <!-- end single card -->
+          </div>
+        </div>
+      </div>
+      <!-- cards 1 wrapper end -->
+
+      <!-- top news and information -->
+      <div class="mt-9 relative z-50 w-full grid grid-cols-12 grid-rows-1">
+        <div
+          class="
+            bg-adirondackGreen
+            h-16
+            xl:h-24
+            my-auto
+            rounded-r-full
+            col-start-1
+            row-start-1 row-end-2
+            col-end-12
+            md:col-end-11
+            lg:col-end-11
+            xl:col-end-10
+            2xl:col-end-9
+            fiveHundred:col-end-11
+          "
+        ></div>
+
+        <h2
+          class="
+            my-auto
+            m-auto
+            fiveHundred:col-span-full fiveHundred:col-end-13
+            col-start-1 col-end-8
+            pl-1
+            row-start-1 row-end-2
+            text-white
+            font-gothamBook
+            md:text-xl
+            lg:text-2xl
+            xl:text-3xl
+          "
+        >
+          Top News & Information
+        </h2>
+        <!-- arrow -->
+        <div
+          class="
+            bg-white
+            w-9
+            h-9
+            rounded-full
+            col-start-10
+            fiveHundred:col-start-10
+            row-start-1 row-end-2
+            xl:col-start-9
+            2xl:col-start-8 2xl:ml-16
+            my-auto
+            md:mx-5 md:my-auto
+            flex
+            md:flex-shrink
+            cursor-pointer
+            hover:bg-gray-200
+            transition-all
+            xl:w-12 xl:h-12
+          "
+        >
+          <!-- arrow svg -->
+          <img
+            class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+            src="./assets/images/rightarr.png"
+            alt=""
+          />
+        </div>
+        <!-- end arrow -->
+      </div>
+      <!-- end top news -->
+
+      <!-- cards 2 wrapper -->
+      <div class="pt-3 pb-3 mt-20 mb-24">
+        <div>
+          <div
+            class="
+              grid grid-cols-1
+              mx-auto
+              md:grid-cols-2
+              lg:grid-cols-3 lg:max-w-7xl
+              gap-4
+            "
+          >
+            <!-- single card -->
+            <div class="w-80 xl:w-96 mx-auto list-none z-10 bg-white">
+              <!-- single card grid -->
+              <div
+                class="
+                  grid grid-rows-6 grid-cols-1
+                  h-96
+                  xl:h-cardsLarge
+                  shadow-cardShadow
+                  mx-auto
+                "
+              >
+                <!-- card image placeholder -->
+                <div class="h-40 xl:h-56 bg-cardGray m-5 flex">
+                  <img
+                    class="m-auto w-8/12 mt-6 xl:mt-12"
+                    src="./assets/images/check.png"
+                    alt=""
+                  />
+                </div>
+                <!-- card text -->
+                <div
+                  class="
+                    row-start-4
+                    text-adirondackGreen
+                    px-4
+                    leading-5
+                    text-center
+                    mt-4
+                  "
+                >
+                  <h3 class="mx-auto font-gothamBold text-left pl-2 xl:text-xl">
+                    PPP EZ Loan Forgiveness Form <br />
+                    - Instructions, Checklist, &
+                  </h3>
+                  <p
+                    class="
+                      p-1
+                      font-gothamBook
+                      text-left
+                      pl-2
+                      text-sm
+                      xl:text-base xl:mt-5
+                      text-bottomCardGray
+                    "
+                  >
+                    You (the Borrower) can apply for forgiveness of your
+                    Paycheck Protection Program (PPP)…
+                  </p>
+                </div>
+                <!-- card button -->
+                <div
+                  class="row-start-5 row-end-7 m-auto w-18 mt-12 xl:mt-16 pt-2"
+                >
+                  <!-- arrow -->
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-9
+                      h-9
+                      xl:w-12 xl:h-12
+                      rounded-full
+                      mx-auto
+                      flex
+                      m-auto
+                      mt-6
+                      xl:mt-6
+                      cursor-pointer
+                      hover:bg-adirondackGold
+                      transition-all
+                    "
+                  >
+                    <!-- arrow graphic -->
+                    <img
+                      class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+                      src="./assets/images/rightarr.png"
+                      alt=""
+                    />
+                  </div>
+                  <!-- end arrow -->
+                </div>
+              </div>
+            </div>
+            <!-- end single card -->
+            <!-- single card -->
+            <div class="w-80 xl:w-96 mx-auto list-none z-10 bg-white">
+              <!-- single card grid -->
+              <div
+                class="
+                  grid grid-rows-6 grid-cols-1
+                  h-96
+                  xl:h-cardsLarge
+                  shadow-cardShadow
+                  mx-auto
+                "
+              >
+                <!-- card image placeholder -->
+                <div class="h-40 xl:h-56 bg-cardGray m-5 flex">
+                  <img
+                    class="m-auto w-8/12 mt-6 xl:mt-12"
+                    src="./assets/images/check.png"
+                    alt=""
+                  />
+                </div>
+                <!-- card text -->
+                <div
+                  class="
+                    row-start-4
+                    text-adirondackGreen
+                    px-4
+                    leading-5
+                    text-center
+                    mt-4
+                  "
+                >
+                  <h3 class="mx-auto font-gothamBold text-left pl-2 xl:text-xl">
+                    PPP Loan Program <br />Suspended
+                  </h3>
+                  <p
+                    class="
+                      p-1
+                      font-gothamBook
+                      text-left
+                      pl-2
+                      text-sm
+                      xl:text-base xl:mt-5
+                      text-bottomCardGray
+                    "
+                  >
+                    The Paycheck Protection Program (PPP) loan program has been
+                    suspended. We are no longer able to accept applications.
+                  </p>
+                </div>
+                <!-- card button -->
+                <div
+                  class="row-start-5 row-end-7 m-auto w-18 mt-12 xl:mt-16 pt-2"
+                >
+                  <!-- arrow -->
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-9
+                      h-9
+                      xl:w-12 xl:h-12
+                      rounded-full
+                      mx-auto
+                      flex
+                      m-auto
+                      mt-6
+                      xl:mt-6
+                    "
+                  >
+                    <!-- arrow -->
+                    <img
+                      class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+                      src="./assets/images/rightarr.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end single card -->
+            <!-- single card -->
+            <div class="w-80 xl:w-96 mx-auto list-none z-10 bg-white">
+              <!-- single card grid -->
+              <div
+                class="
+                  grid grid-rows-6 grid-cols-1
+                  h-96
+                  xl:h-cardsLarge
+                  shadow-cardShadow
+                  mx-auto
+                "
+              >
+                <!-- card image placeholder -->
+                <div class="h-40 xl:h-56 bg-cardGray m-5 flex">
+                  <img
+                    class="m-auto w-6/12 mt-3 xl:mt-6"
+                    src="./assets/images/smile.png"
+                    alt=""
+                  />
+                </div>
+                <!-- card text -->
+                <div
+                  class="
+                    row-start-4
+                    text-adirondackGreen
+                    px-4
+                    leading-5
+                    text-center
+                    mt-4
+                  "
+                >
+                  <h3 class="font-gothamBold mx-auto text-left pl-2 xl:text-xl">
+                    Branch Lobbies Now Open
+                  </h3>
+                  <p
+                    class="
+                      p-1
+                      font-gothamBook
+                      text-left
+                      pl-2
+                      text-sm
+                      xl:text-base xl:mt-5
+                      text-bottomCardGray
+                    "
+                  >
+                    We're so happy to see you again! Our branches have re-opened
+                    effective April 19, 2021, with normal business hours…
+                  </p>
+                </div>
+                <!-- card button -->
+                <div
+                  class="row-start-5 row-end-7 m-auto w-18 mt-12 xl:mt-16 pt-2"
+                >
+                  <!-- arrow -->
+                  <div
+                    class="
+                      bg-adirondackGreen
+                      w-9
+                      h-9
+                      xl:w-12 xl:h-12
+                      rounded-full
+                      mx-auto
+                      flex
+                      m-auto
+                      mt-6
+                      xl:mt-6
+                    "
+                  >
+                    <!-- arrow -->
+                    <img
+                      class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
+                      src="./assets/images/rightarr.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end single card -->
+          </div>
+        </div>
+      </div>
+      <!-- cards 2 wrapper end -->
+      <img
+        class="
+          z-0
+          absolute
+          w-treesSm
+          left-2/4
+          transform
+          -translate-x-2/4
+          bottom-1/3
+          mb-40
+        "
+        src="./assets/images/trees.png"
+        alt=""
+      />
+    </div>
+
+    <!-- find a location -->
+    <h2
+      class="
+        font-gothamBold
+        text-center
+        mt-14
+        text-2xl
+        md:hidden
+        text-adirondackGreen
+      "
+    >
+      Find a Branch or ATM
+    </h2>
+
+    <div class="mt-9 w-10/12 ml-auto">
+      <div class="bg-adirondackGreen h-16 rounded-l-full">
+        <div class="flex justify-around h-full">
+          <!-- form and find a branch swap places at md -->
+          <h2
+            class="hidden md:block m-auto text-white font-gothamBook md:text-xl"
+          >
+            Find a Branch or ATM
+          </h2>
+          <input
+            class="h-2/4 w-36 m-auto"
+            type="text"
+            placeholder="Enter Zip"
+          />
+          <!-- arrow -->
+          <div class="bg-white w-9 h-9 rounded-full m-auto flex">
+            <!-- arrow svg -->
+            <svg
+              class="block m-auto ml-3.5"
+              id="noun_Right_Arrow_1918043"
+              data-name="noun_Right Arrow_1918043"
+              xmlns="http://www.w3.org/2000/svg"
+              width="9"
+              height="20"
+              viewBox="0 0 12 23"
+            >
+              <path
+                id="Path"
+                d="M0,22.309a.7.7,0,0,1,.2-.491L10.354,11.5.2,1.184A.7.7,0,0,1,.2.2a.674.674,0,0,1,.965,0L11.8,11.01a.7.7,0,0,1,0,.981L1.164,22.8a.676.676,0,0,1-.742.147A.7.7,0,0,1,0,22.309Z"
+              />
+            </svg>
+          </div>
+          <!-- end arrow -->
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div class="block overflow-hidden">
+      <img
+        class="object-cover h-96 md:h-auto"
+        src="../build/assets/images/map.png"
+        alt=""
+      />
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mt-12 mb-12">
+      <!-- LOGO -->
+      <div>
+        <img
+          class="block mx-auto w-72"
+          src="./assets/images/logo-bottom.png"
+          alt="Adirondack Bank Logo"
+        />
+      </div>
+      <!-- line -->
+      <div class="h-0.5 w-56 mx-auto mt-4 bg-footerGray"></div>
+
+      <!-- address  -->
+      <div
+        class="
+          mx-auto
+          text-center
+          relative
+          font-gothamBook
+          text-footerGray
+          mt-4
+          mb-4
+          w-52
+        "
+      >
+        <img
+          class="absolute left-1 top-1 w-3"
+          src="./assets/images/footer-pin.png"
+          alt=""
+        />
+        <div class="flex mx-auto justify-center">
+          <p>185 Genesee Street</p>
+        </div>
+        <p>Utica, NY 13501</p>
+      </div>
+
+      <!-- privacy -->
+      <div><img src="./assets/images/FDIC.png" alt="" /></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "adirondack_landingpage",
+  "version": "1.0.0",
+  "description": "Adirondack Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/styles.css -o build/styles.css"
+  },
+  "author": "thom mccarthy",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.3.7",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.17",
+    "watch": "^1.0.2"
+  }
+}
