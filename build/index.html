@@ -1249,44 +1249,103 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="mt-12 mb-12">
-      <!-- LOGO -->
-      <div>
-        <img
-          class="block mx-auto w-72"
-          src="./assets/images/logo-bottom.png"
-          alt="Adirondack Bank Logo"
-        />
-      </div>
-      <!-- line -->
-      <div class="h-0.5 w-56 mx-auto mt-4 bg-footerGray"></div>
-
-      <!-- address  -->
+    <div
+      class="
+        mt-12
+        mb-16
+        lg:grid lg:grid-cols-12 lg:grid-rows-12
+        xl:mt-32 xl:mb-32
+      "
+    >
+      <!-- LOGO AND ADDRESS -->
       <div
-        class="
-          mx-auto
-          text-center
-          relative
-          font-gothamBook
-          text-footerGray
-          mt-4
-          mb-4
-          w-52
-        "
+        class="lg:col-start-1 lg:col-end-13 lg:row-start-1 lg:row-end-7 w-full"
       >
-        <img
-          class="absolute left-1 top-1 w-3"
-          src="./assets/images/footer-pin.png"
-          alt=""
-        />
-        <div class="flex mx-auto justify-center">
-          <p>185 Genesee Street</p>
+        <!-- LOGO -->
+        <div>
+          <img
+            class="block mx-auto w-72"
+            src="./assets/images/logo-bottom.png"
+            alt="Adirondack Bank Logo"
+          />
         </div>
-        <p>Utica, NY 13501</p>
+        <!-- line -->
+        <div
+          class="h-0.5 w-56 mx-auto mt-4 bg-footerGray lg:w-96 lg:mt-9"
+        ></div>
+
+        <!-- address  -->
+        <div
+          class="
+            mx-auto
+            text-center
+            relative
+            font-gothamBook
+            text-footerGray
+            mt-4
+            mb-4
+            w-52
+            lg:mt-9
+          "
+        >
+          <img
+            class="absolute left-1 top-1 w-3"
+            src="./assets/images/footer-pin.png"
+            alt=""
+          />
+          <div class="flex mx-auto justify-center">
+            <p>185 Genesee Street</p>
+          </div>
+          <p>Utica, NY 13501</p>
+        </div>
       </div>
+      <!-- END LOGO AND ADDRESS -->
 
       <!-- privacy -->
-      <div><img src="./assets/images/FDIC.png" alt="" /></div>
+      <div
+        class="
+          mt-9
+          lg:mt-0
+          lg:-mb-5
+          lg:col-start-1
+          lg:col-end-6
+          lg:mx-auto
+          lg:row-start-5
+          lg:row-end-7
+          lg:max-w-md
+        "
+      >
+        <img class="mx-auto lg:ml-0" src="./assets/images/FDIC.png" alt="" />
+        <ul
+          class="
+            flex
+            mx-auto
+            w-full
+            lg:mt-6 lg:justify-start
+            justify-around
+            mt-9
+            max-w-md
+          "
+        >
+          <li class="lg:mr-3">Privacy Policy</li>
+          <li class="lg:mr-3">Cookie Policy</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <!-- LINK TO TRAINOR -->
+      <p
+        class="
+          mt-9
+          max-w-md
+          mx-auto
+          text-center
+          lg:col-start-9 lg:col-end-12 lg:row-start-6 lg:row-end-11
+        "
+      >
+        Digital by
+        <a href="https://www.trainor.com/" target="_blank">TRAINOR</a>
+      </p>
     </div>
 
     <!-- smooth scroll polyfill for macs -->
