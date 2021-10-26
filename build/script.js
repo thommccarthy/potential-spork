@@ -57,10 +57,10 @@ function getPosition() {
   });
 }
 
-arrows.forEach((button) => {
-  button.addEventListener('click', () => {
-    if (button.classList.contains('next')) getNextSlide();
-    else if (button.classList.contains('prev')) getPrevSlide();
+arrows.forEach((arrow) => {
+  arrow.addEventListener('click', () => {
+    if (arrow.classList.contains('next')) getNextSlide();
+    else if (arrow.classList.contains('prev')) getPrevSlide();
   });
 });
 
@@ -81,6 +81,7 @@ function getNextSlide() {
   getActiveDot();
   autoLoop();
 }
+
 function getPrevSlide() {
   clearInterval(timeoutId);
   const current = document.querySelector('.active');
@@ -145,8 +146,8 @@ getActiveDot();
 functionalDots();
 autoLoop();
 
-//added basic swiper controls
-//only on phone not mouse
+// added basic swiper controls
+// only on phone not mouse
 let touchstartX = 0;
 let touchendX = 0;
 

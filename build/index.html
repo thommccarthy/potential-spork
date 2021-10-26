@@ -60,7 +60,7 @@
   </head>
   <body class="max-w-ultrawideClamp mx-auto overflow-x-hidden">
     <!-- header wrapper -->
-    <header class="block bg-white realtive relative z-50 top-0">
+    <header id="header" class="block bg-white realtive relative z-50 top-0">
       <!-- header grid -->
       <div
         class="
@@ -442,6 +442,8 @@
           hover:opacity-70
           next
           w-7
+          lg:w-10 lg:right-10
+          xl:w-14 xl:right-14
           absolute
           right-3
           bottom-1/2
@@ -457,6 +459,8 @@
           arrow
           cursor-pointer
           hover:opacity-70
+          lg:w-10 lg:left-10
+          xl:w-14 xl:left-14
           prev
           left-3
           bottom-1/2
@@ -1030,15 +1034,19 @@
                       m-auto
                       mt-6
                       xl:mt-6
+                      cursor-pointer
+                      hover:bg-adirondackGold
+                      transition-all
                     "
                   >
-                    <!-- arrow -->
+                    <!-- arrow graphic -->
                     <img
                       class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
                       src="./assets/images/rightarr.png"
                       alt=""
                     />
                   </div>
+                  <!-- end arrow -->
                 </div>
               </div>
             </div>
@@ -1109,15 +1117,19 @@
                       m-auto
                       mt-6
                       xl:mt-6
+                      cursor-pointer
+                      hover:bg-adirondackGold
+                      transition-all
                     "
                   >
-                    <!-- arrow -->
+                    <!-- arrow graphic -->
                     <img
                       class="w-2 xl:w-3 block m-auto ml-3.5 xl:ml-5"
                       src="./assets/images/rightarr.png"
                       alt=""
                     />
                   </div>
+                  <!-- end arrow -->
                 </div>
               </div>
             </div>
@@ -1216,6 +1228,8 @@
       <div
         class="
           bg-white
+          hover:bg-gray-200
+          cursor-pointer
           w-9
           h-9
           xl:w-12 xl:h-12
@@ -1347,6 +1361,33 @@
         <a href="https://www.trainor.com/" target="_blank">TRAINOR</a>
       </p>
     </div>
+
+    <!-- scroll to top -->
+    <a
+      href="#header"
+      class="
+        w-full
+        mx-auto
+        flex
+        -mb-14
+        md:hidden
+        pb-5
+        shadow-cardShadow
+        hover:opacity-90
+        bg-adirondackGreen
+      "
+    >
+      <button
+        id="toTopButton"
+        class="relative md:hidden cursor-pointer h-12 mx-auto z-50"
+      >
+        <img
+          class="transform -rotate-90 w-12 mx-auto"
+          src="./assets/images/white-arrow-png-41963.png"
+          alt=""
+        />
+      </button>
+    </a>
 
     <!-- smooth scroll polyfill for macs -->
     <script
